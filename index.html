@@ -132,7 +132,7 @@
             display: none;
             width: 100%;
             min-height: 100vh;
-            padding: 32px;
+            padding: 10px;
             position: relative;
         }
 
@@ -141,7 +141,7 @@
         }
 
         .slide-shell {
-            height: calc(100vh - 64px);
+            height: calc(100vh - 20px);
             display: block;
         }
 
@@ -149,7 +149,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            padding: 34px 38px 28px;
+            padding: 30px 34px 24px;
             border-radius: 32px;
             border: 1px solid rgba(255, 255, 255, 0.92);
             background: rgba(255, 255, 255, 0.78);
@@ -225,17 +225,24 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 28px;
+            justify-content: flex-start;
+            gap: 40px;
         }
 
         h1 {
-            font-family: Georgia, Cambria, "Times New Roman", serif;
-            font-size: clamp(48px, 5vw, 80px);
+            font-family: "Aeonik", "Avenir Next", "Segoe UI", sans-serif;
+            font-size: clamp(42px, 4.4vw, 70px);
             line-height: 0.96;
             letter-spacing: -0.04em;
             font-weight: 600;
             max-width: 11ch;
+        }
+
+        .slide-title {
+            width: 100%;
+            max-width: none;
+            margin-top: 14px;
+            margin-bottom: 0;
         }
 
         h1 em {
@@ -276,37 +283,50 @@
         }
 
         .text-stack {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 18px;
+            min-height: 100%;
+        }
+
+        .text-main {
             display: grid;
             align-content: start;
             gap: 18px;
         }
 
+        .slide-grid.balanced-grid .text-stack,
+        .slide-grid.balanced-grid .visual-panel {
+            min-height: 100%;
+        }
+
         .compact-bullets {
             list-style: none;
             display: grid;
-            gap: 14px;
-            max-width: 39ch;
+            gap: 16px;
+            max-width: 40ch;
             margin-top: 6px;
         }
 
         .compact-bullets li {
             position: relative;
-            padding-left: 18px;
-            font-size: 18px;
-            line-height: 1.45;
+            padding-left: 22px;
+            font-size: 21px;
+            line-height: 1.4;
             color: rgba(22, 51, 0, 0.84);
         }
 
         .compact-bullets li::before {
             content: "";
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: var(--gaian-accent);
             position: absolute;
-            top: 10px;
+            top: 9px;
             left: 0;
-            box-shadow: 0 0 0 5px rgba(159, 232, 112, 0.16);
+            box-shadow: 0 0 0 6px rgba(159, 232, 112, 0.16);
         }
 
         .visual-panel {
@@ -317,9 +337,86 @@
                 radial-gradient(circle at top right, rgba(159, 232, 112, 0.18), transparent 16rem),
                 rgba(255, 255, 255, 0.88);
             box-shadow: var(--gaian-shadow-soft);
-            display: grid;
+            display: flex;
+            flex-direction: column;
             gap: 18px;
-            align-content: start;
+            align-items: stretch;
+        }
+
+        .visual-panel.image-panel .image-frame img {
+            height: 308px;
+        }
+
+        .image-figure {
+            display: grid;
+            gap: 14px;
+        }
+
+        .image-frame {
+            overflow: hidden;
+            border-radius: 26px;
+            border: 1px solid rgba(22, 51, 0, 0.10);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: var(--gaian-shadow-soft);
+        }
+
+        .image-frame img {
+            display: block;
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .image-caption {
+            display: grid;
+            gap: 8px;
+            padding: 2px 2px 0;
+        }
+
+        .image-caption-title {
+            font-size: 15px;
+            line-height: 1.45;
+            font-weight: 700;
+            color: rgba(22, 51, 0, 0.84);
+        }
+
+        .image-caption-copy {
+            font-size: 14px;
+            line-height: 1.55;
+            color: rgba(22, 51, 0, 0.68);
+        }
+
+        .caption-chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .caption-chip-row.left-pin-row {
+            margin-top: auto;
+            padding-top: 14px;
+            max-width: 42ch;
+        }
+
+        .caption-chip {
+            min-height: 38px;
+            padding: 9px 13px;
+            border-radius: var(--gaian-radius-pill);
+            border: 1px solid var(--gaian-border-soft);
+            background: rgba(246, 253, 241, 0.95);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .caption-chip-row.alert-pin-row .caption-chip {
+            background: rgba(122, 30, 30, 0.96);
+            color: rgba(255, 255, 255, 0.94);
+            border-color: rgba(122, 30, 30, 0.96);
         }
 
         .city-hub {
@@ -339,7 +436,7 @@
         }
 
         .city-hub .hub-city {
-            font-family: Georgia, Cambria, "Times New Roman", serif;
+            font-family: "Aeonik", "Avenir Next", "Segoe UI", sans-serif;
             font-size: 48px;
             line-height: 0.95;
             letter-spacing: -0.05em;
@@ -402,6 +499,40 @@
             color: rgba(22, 51, 0, 0.45);
         }
 
+        .partner-strip {
+            display: grid;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .partner-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .partner-badge {
+            min-width: 112px;
+            height: 58px;
+            padding: 10px 14px;
+            border-radius: 18px;
+            border: 1px solid var(--gaian-border-soft);
+            background: rgba(255, 255, 255, 0.96);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--gaian-shadow-soft);
+        }
+
+        .partner-badge img {
+            max-width: 88px;
+            max-height: 28px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
         .outcome-chips {
             display: flex;
             flex-wrap: wrap;
@@ -427,6 +558,7 @@
                 radial-gradient(circle at top right, rgba(159, 232, 112, 0.28), transparent 12rem),
                 rgba(255, 255, 255, 0.96);
             border: 1px solid var(--gaian-border-soft);
+            margin-top: auto;
         }
 
         .accent-stat .stat-kicker {
@@ -439,7 +571,7 @@
         }
 
         .accent-stat .stat-number {
-            font-family: Georgia, Cambria, "Times New Roman", serif;
+            font-family: "Aeonik", "Avenir Next", "Segoe UI", sans-serif;
             font-size: 56px;
             line-height: 0.95;
             letter-spacing: -0.05em;
@@ -651,7 +783,7 @@
         }
 
         .quote-card p {
-            font-family: Georgia, Cambria, "Times New Roman", serif;
+            font-family: "Aeonik", "Avenir Next", "Segoe UI", sans-serif;
             font-size: 30px;
             line-height: 1.2;
             letter-spacing: -0.03em;
@@ -769,7 +901,7 @@
         }
 
         .stat-value {
-            font-family: Georgia, Cambria, "Times New Roman", serif;
+            font-family: "Aeonik", "Avenir Next", "Segoe UI", sans-serif;
             font-size: clamp(48px, 5vw, 70px);
             line-height: 0.95;
             letter-spacing: -0.05em;
@@ -828,6 +960,10 @@
             gap: 16px;
         }
 
+        .footer.minimal {
+            justify-content: flex-end;
+        }
+
         .footer-left {
             display: flex;
             align-items: center;
@@ -881,7 +1017,7 @@
         }
 
         .speaker-notes h3 {
-            font-family: Georgia, Cambria, "Times New Roman", serif;
+            font-family: "Aeonik", "Avenir Next", "Segoe UI", sans-serif;
             font-size: 34px;
             letter-spacing: -0.04em;
             margin-bottom: 18px;
@@ -908,29 +1044,12 @@
             margin: 18px 0;
         }
 
-        .nav-hint {
-            position: fixed;
-            bottom: 14px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            padding: 8px 14px;
-            border-radius: var(--gaian-radius-pill);
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(22, 51, 0, 0.62);
-        }
-
         body[data-mode="notes"] .slide-shell {
             display: grid;
             grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.95fr);
             gap: 24px;
             height: auto;
-            min-height: calc(100vh - 64px);
+            min-height: calc(100vh - 20px);
         }
 
         body[data-mode="notes"] .speaker-notes {
@@ -938,7 +1057,7 @@
         }
 
         body[data-mode="notes"] .main-panel {
-            min-height: calc(100vh - 64px);
+            min-height: calc(100vh - 20px);
         }
 
         @media (max-width: 1200px) {
@@ -955,11 +1074,11 @@
             }
 
             .slide {
-                padding: 20px;
+                padding: 10px;
             }
 
             .main-panel {
-                padding: 24px 22px;
+                padding: 24px 22px 20px;
             }
 
             .controls {
@@ -1004,9 +1123,6 @@
                 width: calc(100% - 24px);
             }
 
-            .nav-hint {
-                display: none;
-            }
         }
     </style>
 </head>
@@ -1027,57 +1143,40 @@
         <section class="slide active" data-section="TẦM NHÌN">
             <div class="slide-shell">
                 <div class="main-panel">
-                    <header class="header">
-                        <div class="logo-lockup">
-                            <div class="eyebrow">Tầm nhìn</div>
-                            <div class="logo"><span>GAIAN</span></div>
-                        </div>
-                        <div class="date-chip">5-10 năm tới</div>
-                    </header>
-
                     <div class="content">
-                        <div class="slide-grid">
+                        <h1 class="slide-title">Từ thành phố du lịch đến trung tâm tài chính và công nghệ mang tầm khu vực</h1>
+                        <div class="slide-grid balanced-grid">
                             <div class="text-stack">
-                                <h1>Đà Nẵng trước một chu kỳ tăng trưởng mới</h1>
-                                <p class="subhead">Từ thành phố du lịch đến trung tâm tài chính và công nghệ mang tầm khu vực</p>
-                                <ul class="compact-bullets">
-                                    <li>Tầm nhìn 5-10 năm</li>
-                                    <li>Du lịch, tài chính, công nghệ</li>
-                                    <li>Blockchain và AI là lớp tăng trưởng mới</li>
-                                    <li>Nhân tài quốc tế là điểm khởi đầu</li>
-                                </ul>
+                                <div class="text-main">
+                                    <p class="subhead">Đà Nẵng trước một chu kỳ tăng trưởng mới</p>
+                                    <ul class="compact-bullets">
+                                        <li>Du lịch, tài chính, công nghệ</li>
+                                        <li>Tài sản số là một trong những động lực tăng trưởng</li>
+                                        <li>Nhân tài quốc tế tăng tốc tăng trưởng</li>
+                                    </ul>
+                                </div>
+                                <div class="caption-chip-row left-pin-row">
+                                    <span class="caption-chip">Nhân tài quốc tế</span>
+                                    <span class="caption-chip">Cộng đồng builder</span>
+                                    <span class="caption-chip">Chu kỳ tăng trưởng mới</span>
+                                </div>
                             </div>
 
-                            <div class="visual-panel">
-                                <div class="city-hub">
-                                    <div class="hub-label">Một thành phố đang lên tầm khu vực</div>
-                                    <div class="hub-city">Da Nang</div>
-                                    <div class="hub-copy">Một thành phố tăng trưởng từ du lịch, tiến lên tài chính và công nghệ nhờ thu hút đúng lớp nhân tài quốc tế.</div>
-                                </div>
-                                <div class="mini-grid three">
-                                    <div class="card">
-                                        <div class="card-kicker">Trụ cột 1</div>
-                                        <div class="card-title">Du lịch</div>
+                            <div class="visual-panel image-panel">
+                                <figure class="image-figure">
+                                    <div class="image-frame">
+                                        <img src="photo/slide1.webp" alt="Cộng đồng quốc tế tham dự Solana Summit tại Đà Nẵng">
                                     </div>
-                                    <div class="card">
-                                        <div class="card-kicker">Trụ cột 2</div>
-                                        <div class="card-title">Tài chính</div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-kicker">Trụ cột 3</div>
-                                        <div class="card-title">Công nghệ</div>
-                                    </div>
-                                </div>
-                                <div class="talent-ribbon">Nhân tài quốc tế là tín hiệu sớm của chu kỳ tăng trưởng tiếp theo</div>
+                                    <figcaption class="image-caption">
+                                        <div class="image-caption-title">Đà Nẵng đang hiện diện trên bản đồ của cộng đồng công nghệ quốc tế.</div>
+                                        <div class="image-caption-copy">Sự tăng trưởng dài hạn bắt đầu từ việc thành phố trở thành nơi gặp nhau của nhân tài, nhà sáng lập và cộng đồng toàn cầu.</div>
+                                    </figcaption>
+                                </figure>
                             </div>
                         </div>
                     </div>
 
-                    <footer class="footer">
-                        <div class="footer-left">
-                            <span class="section-label">Tầm nhìn</span>
-                            <span class="footer-summary">Mở bằng tương lai của thành phố, không mở bằng sản phẩm.</span>
-                        </div>
+                    <footer class="footer minimal">
                         <span class="pagination"><span class="current">01</span> / 04</span>
                     </footer>
                 </div>
@@ -1099,44 +1198,34 @@
         <section class="slide" data-section="VẤN ĐỀ">
             <div class="slide-shell">
                 <div class="main-panel">
-                    <header class="header">
-                        <div class="logo-lockup">
-                            <div class="eyebrow">Vấn đề</div>
-                            <div class="logo"><span>GAIAN</span></div>
-                        </div>
-                        <div class="date-chip">Rào cản cần tháo gỡ</div>
-                    </header>
-
                     <div class="content">
-                        <div class="slide-grid">
+                        <h1 class="slide-title">Dòng tiền chảy ngầm là rào cản</h1>
+                        <div class="slide-grid balanced-grid">
                             <div class="text-stack">
-                                <h1>Một rào cản cần được giải quyết</h1>
-                                <p class="subhead">Để nhân tài quốc tế có thể sinh sống, chi tiêu và đóng góp hợp pháp tại Đà Nẵng</p>
-                                <ul class="compact-bullets">
-                                    <li>Nhân tài quốc tế cần kênh chi tiêu hợp pháp</li>
-                                    <li>Giao dịch cần được ghi nhận và nộp thuế</li>
-                                    <li>Một phần tài sản là tài sản số</li>
-                                    <li>Dòng này vẫn ở thị trường không chính thức</li>
-                                </ul>
+                                <div class="text-main">
+                                    <p class="subhead">Không có kênh thuận tiện, hợp pháp cho việc chuyển đổi tài sản số và chi tiêu</p>
+                                    <ul class="compact-bullets">
+                                        <li>Giao dịch cần được ghi nhận và nộp thuế</li>
+                                        <li>Thị trường phi chính thức gây khó khăn cho cơ quan quản lý trong việc thu thập dữ liệu và thu thuế</li>
+                                    </ul>
+                                </div>
+                                <div class="caption-chip-row left-pin-row alert-pin-row">
+                                    <span class="caption-chip">Chưa ghi nhận</span>
+                                    <span class="caption-chip">Chưa nộp thuế đầy đủ</span>
+                                    <span class="caption-chip">Chưa đo lường đầy đủ</span>
+                                </div>
                             </div>
 
-                            <div class="visual-panel">
-                                <div class="card-kicker">Luồng đang diễn ra ngoài hệ thống chính thức</div>
-                                <div class="linear-flow">
-                                    <div class="flow-node">Nhân tài quốc tế</div>
-                                    <div class="flow-arrow">→</div>
-                                    <div class="flow-node">Tài sản số</div>
-                                    <div class="flow-arrow">→</div>
-                                    <div class="flow-node warn">Thị trường không chính thức</div>
-                                    <div class="flow-arrow">→</div>
-                                    <div class="flow-node soft">Giá trị chưa ghi nhận</div>
-                                </div>
-                                <div class="outcome-chips">
-                                    <span class="outcome-chip">Chưa ghi nhận đầy đủ</span>
-                                    <span class="outcome-chip">Chưa nộp thuế đầy đủ</span>
-                                    <span class="outcome-chip">Chưa đo lường đầy đủ</span>
-                                </div>
-                                <div class="tiny-note">Nhu cầu có thật, nhưng giá trị kinh tế chưa đi vào hệ thống quản lý và thuế một cách đầy đủ.</div>
+                            <div class="visual-panel image-panel">
+                                <figure class="image-figure">
+                                    <div class="image-frame">
+                                        <img src="photo/slide2.webp" alt="Giao dịch đổi tiền mặt, đại diện cho dòng tiền đang đi ngoài hệ thống chính thức">
+                                    </div>
+                                    <figcaption class="image-caption">
+                                        <div class="image-caption-title">Một phần chi tiêu giá trị cao vẫn đi qua các kênh ngoài hệ thống chính thức.</div>
+                                        <div class="image-caption-copy">Khi dòng tiền không đi vào khuôn khổ phù hợp, thành phố khó ghi nhận, khó quản lý và khó thu được phần giá trị tương xứng.</div>
+                                    </figcaption>
+                                </figure>
                             </div>
                         </div>
                     </div>
@@ -1167,25 +1256,18 @@
         <section class="slide" data-section="GAIAN">
             <div class="slide-shell">
                 <div class="main-panel">
-                    <header class="header">
-                        <div class="logo-lockup">
-                            <div class="eyebrow">Giải pháp Gaian</div>
-                            <div class="logo"><span>GAIAN</span></div>
-                        </div>
-                        <div class="date-chip">Đã vận hành thực tế</div>
-                    </header>
-
                     <div class="content">
-                        <div class="slide-grid">
+                        <h1 class="slide-title">Gaian đã xử lý hàng chục nghìn giao dịch</h1>
+                        <div class="slide-grid balanced-grid">
                             <div class="text-stack">
-                                <h1>Gaian đang giải quyết bài toán này</h1>
-                                <p class="subhead">Chuyển đổi tài sản số sang VND để thanh toán cho người bán tại Việt Nam</p>
-                                <ul class="compact-bullets">
-                                    <li>Crypto → VND cho thanh toán tại Việt Nam</li>
-                                    <li>Trải nghiệm nhanh và thuận tiện</li>
-                                    <li>21 tỷ VND đã xử lý</li>
-                                    <li>Luồng hiện tại chậm, tốn vốn đối ứng</li>
-                                </ul>
+                                <div class="text-main">
+                                    <p class="subhead">Gaian cung cấp giải pháp quét mã QR để chuyển đổi tài sản số sang VND và thanh toán trong tích tắc</p>
+                                    <ul class="compact-bullets">
+                                        <li>Trải nghiệm nhanh và thuận tiện</li>
+                                        <li>Đã xử lý hơn 21 tỷ VNĐ</li>
+                                        <li>Nhưng: luồng vận hành hiện tại chậm (T+7), tốn nhiều vốn. Gây thiệt hại không chỉ cho doanh nghiệp mà cả nền kinh tế</li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <div class="visual-panel">
@@ -1211,11 +1293,21 @@
                                     <div class="flow-node soft">VND</div>
                                 </div>
 
-                                <div class="accent-stat">
-                                    <div class="stat-kicker">Khối lượng đã xử lý</div>
-                                    <div class="stat-number">21 tỷ VND</div>
-                                    <div class="stat-note">Nhu cầu đã được chứng minh bằng giao dịch thực tế.</div>
+                                <div class="partner-strip">
+                                    <div class="card-kicker" style="margin-top: 2px; margin-bottom: 0;">Đối tác hệ sinh thái</div>
+                                    <div class="partner-row" aria-label="Logos đối tác">
+                                        <div class="partner-badge">
+                                            <img src="photo/logos/dcs.png" alt="DCS">
+                                        </div>
+                                        <div class="partner-badge">
+                                            <img src="photo/logos/osl.png" alt="OSL">
+                                        </div>
+                                        <div class="partner-badge">
+                                            <img src="photo/logos/phantom.png" alt="Phantom">
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -1234,6 +1326,7 @@
                     <h3>Chứng minh năng lực, nhưng nói thật về điểm nghẽn</h3>
                     <p>Slide này cần vừa cho thấy Gaian đã giải được bài toán người dùng, vừa chỉ ra vì sao mô hình hiện tại chưa thể tăng trưởng đúng với tiềm năng của thành phố.</p>
                     <ul class="notes-list">
+                        <li>Gaian đã phục vụ hàng nghìn giao dịch, cho thấy đây không còn là một nhu cầu giả định mà là một hành vi chi tiêu có thật.</li>
                         <li>Gaian cho phép người nước ngoài chuyển đổi tài sản số sang VND và thanh toán cho merchant tại Việt Nam theo một trải nghiệm rất nhanh và tiện lợi.</li>
                         <li>Con số 21 tỷ VND đã xử lý chủ yếu đến từ Nha Trang và Vũng Tàu, chưa đến nhiều từ Đà Nẵng.</li>
                         <li>Điều đó cho thấy nhu cầu đã được chứng minh ở các thành phố du lịch tương tự, còn Đà Nẵng vẫn là dư địa tăng trưởng lớn.</li>
@@ -1247,24 +1340,15 @@
         <section class="slide" data-section="ĐỀ XUẤT">
             <div class="slide-shell">
                 <div class="main-panel">
-                    <header class="header">
-                        <div class="logo-lockup">
-                            <div class="eyebrow">Đề xuất</div>
-                            <div class="logo"><span>GAIAN</span></div>
-                        </div>
-                        <div class="date-chip">Thông qua Dragon Lab</div>
-                    </header>
-
                     <div class="content">
+                        <h1 class="slide-title">Đề xuất với thành phố Đà Nẵng</h1>
                         <div class="slide-grid">
                             <div class="text-stack">
-                                <h1>Đề xuất với thành phố Đà Nẵng</h1>
-                                <p class="subhead">Một cơ chế thuận tiện hơn cho chuyển đổi tài sản số sang fiat, thông qua Dragon Lab</p>
+                                <p class="subhead">Một cơ chế thuận tiện hơn cho chuyển đổi tài sản số sang VNĐ, thông qua Dragon Lab để được ghi nhận, nộp thuế tại Việt Nam và tăng trưởng bền vững</p>
                                 <ul class="compact-bullets">
-                                    <li>Thuận tiện hơn cho chuyển đổi tài sản số → fiat</li>
+                                    <li>Thuận tiện hơn cho chuyển đổi tài sản số → tiền pháp định</li>
                                     <li>Triển khai thông qua Dragon Lab</li>
                                     <li>Hạn mức đầu: 500k USD / tháng</li>
-                                    <li>Ghi nhận, nộp thuế, tăng trưởng</li>
                                 </ul>
                             </div>
 
@@ -1314,8 +1398,6 @@
             </div>
         </section>
     </main>
-
-    <div class="nav-hint">← → chuyển slide · N bật notes</div>
 
     <script>
         const slides = Array.from(document.querySelectorAll(".slide"));
